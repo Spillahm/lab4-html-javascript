@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>quiz game</title>
+</head>
+<body>
+<p>what is th  the capital of Wisconsin?</p>
+<button>Bayfield</button>
+<button id="correct-answer"> Madison</button>
+<button>Milwaukee</button>
+
+
+<p id="result"> </p>
+<script>
+
+let correctAnswerButton = documents.querySelector('#correct-answer')
+console.log(correctAnswerButton)
+
+let result=document.querySelector('#result')
+correctAnswerButton.addEventlistener('click',function(){
+  result.innerHTML= 'correct answer!'
+  correctAnswerButton.style.background= 'blue'
+})
+
+</script>
+</body>
+</html>

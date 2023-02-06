@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unordered list page</title>
+</head>
+<body>
+<p>Empty unordered list</p>
+<input id="new-text"></input>
+<button id="add-text"></button>
+
+<ul id="list-of-text">
+
+</ul> <!--Empty unordered list -->
+<button  id="clear">Clear</button>
+
+<script>
+
+let textInput = document.querySelector('#new-text')
+let addButton = document.querySelector('#add-text')
+let textList = document.querySelector('#list-of-text')
+let clearButton =document.querySelector('#clear')
+
+let listElements = 0 //track number
+let maxElements = 10 ///prevent more than 10 things from being added
+
+//click addbutton when user clicks enter key on keyboard
+document.addEventListener('keyup',function(){
+  if(event.keyCode ==13){
+    addButton.click()
+  }
+})
+addButton.addEventListener('click', function() {
+  //read text input
+  let newText = textInput.value
+//varidation
+  if (newText.length == 0){
+    alert('Enter some text')
+    return
+  }
+//checking max is not exceded
+  if (listElements >= maxElements){
+    alert('no more elements to be added')
+    return
+  }
+
+
+
+
+  //console.log(newText)
+  //new li element
+  let newListItem=document.createElement('li')
+  newListItem.innerHTML = newText
+  //add new li element
+  textList.appendChild(newListItem)
+  //clear text in input
+  textInput.value= ''
+
+  listElements++
+
+})
+clearButton.addEventListner('click',function(){
+  textList.innerHTML = ''
+
+})
+</script>
+
+
+
+</body>
+
+</html>
